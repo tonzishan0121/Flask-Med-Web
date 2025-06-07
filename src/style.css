@@ -1,0 +1,104 @@
+:root {
+  font-family: 'Segoe UI', system-ui, Avenir, Helvetica, Arial, sans-serif; /* 无衬线字体 */
+  line-height: 1.5; /* 正文行距1.5倍 */
+  font-weight: 400;
+
+  --primary-color: #1976d2; /* 主色 */
+  --primary-light: #e3f2fd; /* 主色浅版 */
+  --secondary-color: #f8f9fa; /* 辅助浅灰 */
+  --text-primary: #1a1a1a; /* 主文本色 */
+  --text-secondary: #666;
+
+  color-scheme: light dark;
+  color: var(--text-primary);
+  background-color: #ffffff; /* 白色背景 */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* 重置flex布局以适配Element UI容器 */
+  display: block;
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold; /* 标题加粗 */
+  color: var(--text-primary);
+  margin: 0.5em 0;
+}
+h1 {
+  font-size: 2.2em;
+  line-height: 1.2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--primary-color); /* 主色按钮 */
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+button:hover {
+  background-color: #1565c0; /* 主色加深 */
+  border-color: #1565c0;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* 适配Element UI布局 */
+  text-align: left;
+}
+/* 统一列表项间距 */
+ul, ol {
+  padding-left: 20px;
+}
+ul li, ol li {
+  margin: 0.5em 0; /* 列表项间距 */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--text-primary);
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: var(--primary-color);
+  }
+  button {
+    background-color: var(--primary-color);
+  }
+}
