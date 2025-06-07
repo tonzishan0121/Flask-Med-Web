@@ -1,10 +1,12 @@
-# 前端 Dockerfile
-FROM node:22 as builder
-WORKDIR /app
-COPY . .
-RUN npm install -g pnpm
-RUN pnpm install && pnpm run build
+FROM node:latest
 
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# 设置淘宝镜像源并安装pnpm
+RUN npm config set registry https://registry.npmmirror.com && \
+    npm install -g pnpm
+
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+COPY . .
+EXPOSE 5173
+CMD ["pnpm", "run", "dev"]
