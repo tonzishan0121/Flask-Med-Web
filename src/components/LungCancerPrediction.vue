@@ -134,7 +134,7 @@ function formatCancerFeatures(rawData) {
     }, {});
 }
 const predict = async () => {
-  predictionResult.value = await fetch(`${API_CONFIG.BASE_URL}/api/cancer`, {
+  predictionResult.value = await fetch(`${API_CONFIG.API_HOST}/api/cancer`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formatCancerFeatures(form.value))

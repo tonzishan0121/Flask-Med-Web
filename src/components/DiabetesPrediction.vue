@@ -58,7 +58,7 @@ const form = ref({
 const predictionResult = ref(null)
 
 const predict = async () => {
-  predictionResult.value = await fetch(`${API_CONFIG.BASE_URL}/api/diabetes`, {
+  predictionResult.value = await fetch(`${API_CONFIG.API_HOST}/api/diabetes`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(form.value)

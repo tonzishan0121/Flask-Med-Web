@@ -89,7 +89,7 @@ const predictionResult = ref(null)
 
 // 实际调用后端接口的预测逻辑
 const predict = async () => {
-  predictionResult.value = await fetch(`${API_CONFIG.BASE_URL}/api/heart`, {
+  predictionResult.value = await fetch(`${API_CONFIG.API_HOST}/api/heart`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
