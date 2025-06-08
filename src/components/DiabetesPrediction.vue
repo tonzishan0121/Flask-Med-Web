@@ -42,6 +42,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { API_CONFIG } from '../config'
 
 const form = ref({ 
   Pregnancies: 6,
@@ -57,7 +58,7 @@ const form = ref({
 const predictionResult = ref(null)
 
 const predict = async () => {
-  predictionResult.value = await fetch('http://127.0.0.1:5000/api/diabetes', {
+  predictionResult.value = await fetch(`${API_CONFIG.BASE_URL}/api/diabetes`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(form.value)

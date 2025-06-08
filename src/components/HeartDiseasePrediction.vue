@@ -66,6 +66,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { API_CONFIG } from '../config'
 
 // 初始化13个字段的默认示例值
 const form = ref({
@@ -88,7 +89,7 @@ const predictionResult = ref(null)
 
 // 实际调用后端接口的预测逻辑
 const predict = async () => {
-  predictionResult.value = await fetch('http://127.0.0.1:5000/api/heart', {
+  predictionResult.value = await fetch(`${API_CONFIG.BASE_URL}/api/heart`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

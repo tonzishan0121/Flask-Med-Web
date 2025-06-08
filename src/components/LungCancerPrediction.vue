@@ -105,6 +105,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { API_CONFIG } from '../config'
 
 const form = ref({
   GENDER: 1,
@@ -133,7 +134,7 @@ function formatCancerFeatures(rawData) {
     }, {});
 }
 const predict = async () => {
-  predictionResult.value = await fetch('http://127.0.0.1:5000/api/cancer', {
+  predictionResult.value = await fetch(`${API_CONFIG.BASE_URL}/api/cancer`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formatCancerFeatures(form.value))
